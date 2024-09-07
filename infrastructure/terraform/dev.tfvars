@@ -1,0 +1,16 @@
+environment                     = "dev"
+cluster_name                    = "vicarius-dev"
+cluster_version                 = "1.30"
+subnet1                         = "subnet-0a40e7beb104e25cb"
+subnet2                         = "subnet-040425d052d1d07d1"
+subnet3                         = "subnet-0554f60e639aed78a"
+keys                            = "albert-dev-k8s"
+launch_template_system_name     = "albertai-dev-launch-template-system"
+launch_template_app_name        = "albertai-dev-launch-template-app"
+launch_template_name            = "launch_template_name" 
+instance_type                   = "t3a.medium"
+volume_size                     =  30
+volume_type                     = "gp3"
+min_size                        = 3
+max_size                        = 10
+desired_size                    = 3
