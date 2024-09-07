@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t python-application:latest .
+          docker build -t python-application:latest application\Dockerfile
 
       - name: Tag Docker image for ECR
         run: |
