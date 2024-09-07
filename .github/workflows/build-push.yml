@@ -28,10 +28,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t python-application:latest application\Dockerfile
+          docker build -f application/Dockerfile -t python-application:latest .
 
       - name: Tag Docker image for ECR
         run: |
+          docker tag python-application:latest 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:latest
           docker tag python-application:latest 058264138725.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
 
       - name: Push Docker image to ECR
