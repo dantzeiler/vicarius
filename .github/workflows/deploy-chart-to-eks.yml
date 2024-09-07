@@ -39,6 +39,6 @@ jobs:
 
       - name: Deploy Helm Chart
         run: |
-          helm upgrade --install python-application ./infrastructure/helm/dankuni --set dankuni.VERSION=$(VERSION)
+          helm upgrade --install python-application ./infrastructure/helm/dankuni --set dankuni.VERSION=${{ github.event.inputs.IMAGE_VERSION }}
         env:
           VERSION: ${{ github.event.inputs.IMAGE_VERSION }}
