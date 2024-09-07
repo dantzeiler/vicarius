@@ -6,7 +6,13 @@ WORKDIR /app
 COPY . /app
 
 # Install any dependencies specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN ls
+
+
+
+# Install any dependencies specified in requirements.txt
+RUN pip install -r requirements.txt
+
 
 # Expose port 8080 to the outside world
 EXPOSE 8080
