@@ -6,11 +6,6 @@ WORKDIR /app
 COPY application/ /app
 
 # Install any dependencies specified in requirements.txt
-RUN ls
-
-
-
-# Install any dependencies specified in requirements.txt
 RUN pip install -r requirements.txt
 
 
