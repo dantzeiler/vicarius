@@ -6,8 +6,8 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.0"
 
-  cluster_name    = "var.cluster_name"
-  cluster_version = "var.cluster_version"
+  cluster_name    = var.cluster_name
+  cluster_version = var.cluster_version
 
   cluster_endpoint_public_access  = true
 
@@ -19,7 +19,7 @@ module "eks" {
   }
 
   vpc_id                   = "vpc-02c42497a5d880aa4"
-  subnet_ids               = ["var.subnet1", "var.subnet-bcde012a", "var.subnet-fghi345a"]
+  subnet_ids               = [var.subnet1, var.subnet2, var.subnet3]
   #control_plane_subnet_ids = ["subnet-xyzde987", "subnet-slkjf456", "subnet-qeiru789"]
 
   # EKS Managed Node Group(s)
@@ -47,7 +47,7 @@ module "eks" {
     # One access entry with a policy associated
     example = {
       kubernetes_groups = []
-      principal_arn     = "arn:aws:iam::123456789012:role/vicarius-dev"
+      principal_arn     = "arn:aws:iam::058264138725:role/Dankuni-dev-cluster-20240907104838580000000003"
 
       policy_associations = {
         example = {

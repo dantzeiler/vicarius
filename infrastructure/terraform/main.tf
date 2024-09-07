@@ -1,12 +1,12 @@
 provider "aws" {
   region = "us-east-1"
-  profile = "vicarius"
 }
 
+#EKS module
 module "eks" {
   source                            = "./modules/eks"
+  cluster_name                       = var.cluster_name
   cluster_version                   = var.cluster_version
-  environment                       = var.environment
   min_size                          = var.min_size
   max_size                          = var.max_size
   desired_size                      = var.desired_size 
