@@ -20,7 +20,7 @@ spec:
         - containerPort: 8080
         envFrom:
           - configMapRef:
-              name: python-config
+              name: python-configmap
         resources:
           requests:
             cpu: "200m"          
