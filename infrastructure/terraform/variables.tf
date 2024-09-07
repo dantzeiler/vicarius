@@ -41,3 +41,8 @@ variable "subnet3" {
   type        = string
   description = "version of the EKS cluster. example 1.29"
 }
+
+variable "ecr_python_name" {
+  type        = string
+  description = "version of the EKS cluster. example 1.29"
+}

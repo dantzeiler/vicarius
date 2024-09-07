@@ -7,3 +7,4 @@ subnet3                         = "subnet-0a8517eb86cbfe57f"
 min_size                        = 3
 max_size                        = 10
 desired_size                    = 3
+ecr_python_name                 = "python-application"
