@@ -28,10 +28,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          TAG=$(date +%d-%m-%Y-%H-%M)
-          docker build -f application/Dockerfile -t 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:$TAG -t 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:latest .
+          IMAGE_TAG=${{ github.run_number }}
+          docker build -f application/Dockerfile -t 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:$IMAGE_TAG -t 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:latest .
 
       - name: Push Docker image to ECR
         run: |
-          docker push 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:$TAG
+          IMAGE_TAG=${{ github.run_number }}
+          docker push 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:$IMAGE_TAG
           docker push 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:latest
