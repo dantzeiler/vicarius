@@ -4,7 +4,7 @@ def setup_routes(app):
     def home():
         return "Welcome to my Flask website! haha"
 
-    # Define a route for a contact page
-    @app.route('/contact')
+    # Define a route for API pods
+    @app.route('/pods')
     def contact():
         return "Contact us at: contact@example.com"
