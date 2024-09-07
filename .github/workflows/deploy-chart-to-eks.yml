@@ -3,7 +3,7 @@ name: Deploy Helm Chart to EKS
 on:
   workflow_dispatch:
     inputs:
-      VERSION:
+      IMAGE_VERSION:
         description: 'version of the docker image to deploy'
         required: true
         default: 'latest'
@@ -41,4 +41,4 @@ jobs:
         run: |
           helm upgrade --install python-application ./infrastructure/helm/dankuni --set dankuni.VERSION=$(VERSION)
         env:
-          VERSION: ${{ github.event.inputs.VERSION }}
+          VERSION: ${{ github.event.inputs.IMAGE_VERSION }}
