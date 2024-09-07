@@ -8,9 +8,8 @@ COPY application/ /app
 # Install any dependencies specified in requirements.txt
 RUN pip install -r requirements.txt
 
-
 # Expose port 8080 to the outside world
 EXPOSE 8080
 
 # Command to run the application
-CMD ["python", "app.py"]
+CMD ["python", "main.py"]
