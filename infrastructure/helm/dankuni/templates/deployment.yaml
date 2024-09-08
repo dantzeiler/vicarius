@@ -17,7 +17,7 @@ spec:
       - name: python-application
         image: 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:{{ .Values.dankuni.VERSION }}
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         envFrom:
           - configMapRef:
               name: python-configmap
