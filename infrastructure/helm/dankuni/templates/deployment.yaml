@@ -13,6 +13,7 @@ spec:
         role: web
         network: web
     spec:
+      serviceAccountName: python-kube
       containers:
       - name: python-application
         image: 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:{{ .Values.dankuni.VERSION }}

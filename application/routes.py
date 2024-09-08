@@ -5,6 +5,14 @@ def setup_routes(app):
         return "Welcome to my Flask website! haha"
 
     # Define a route for API pods
-    @app.route('/pods')
-    def contact():
-        return "Contact us at: contact@example.com"
+    @app.route('/pods', methods=['GET'])
+    def get_pods():
+        v1 = client.CoreV1Api()
+        namespace = 'kube-system'
+        try:
+            pods = v1.list_namespaced_pod(namespace)
+            pod_list = [pod.metadata.name for pod in pods.items]
+            return jsonify({'pods': pod_list}), 200
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+
