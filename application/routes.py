@@ -6,14 +6,13 @@ def setup_routes(app):
         return "Welcome to my Flask website! haha"
 
     # Define a route for API pods
-    @app.route('/pods', methods=['GET'])
+    @app.route('/pods/kube-system', methods=['GET'])
     def get_pods():
-        v1 = client.CoreV1Api()
-        namespace = 'kube-system'
         try:
-            pods = v1.list_namespaced_pod(namespace)
-            pod_list = [pod.metadata.name for pod in pods.items]
-            return jsonify({'pods': pod_list}), 200
+            v1 = client.CoreV1Api()
+            pods = v1.list_namespaced_pod(namespace='kube-system')
+            pod_list = [{"name": pod.metadata.name, "status": pod.status.phase} for pod in pods.items]
+            return jsonify(pod_list), 200
         except Exception as e:
-            return jsonify({'error': str(e)}), 500
+            return jsonify({"error": str(e)}), 500
 
