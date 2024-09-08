@@ -1,11 +1,11 @@
 from flask import Flask
 from routes import setup_routes
-from kubernetes import client, config
+from kubernetes import  config
 
 app = Flask(__name__)
 
 config.load_incluster_config() 
 
-# Set up the routes
+# Set up the relevant routes
 setup_routes(app)
 

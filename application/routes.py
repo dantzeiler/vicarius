@@ -1,3 +1,4 @@
+#routes file
 def setup_routes(app):
     # Define a route for the homepage
     @app.route('/')
