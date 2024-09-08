@@ -29,7 +29,7 @@ jobs:
       - name: Build Docker image
         run: |
           IMAGE_TAG=${{ github.run_number }}
-          docker build -f application/Dockerfile -t 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:$IMAGE_TAG -t 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:latest .
+          docker build --no-cache -f application/Dockerfile -t 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:$IMAGE_TAG -t 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:latest .
 
       - name: Push Docker image to ECR
         run: |
