@@ -26,12 +26,12 @@ The python application uses flask for web framwork interface.
 
 # Bonuses
 ## ALB 
-##The application  include an ALB and can accessed currently by browsing to : 
+The application  include an ALB and can accessed currently by browsing to : 
 k8s-default-pythonin-acd2d71822-1416919428.us-east-1.elb.amazonaws.com
 ## DNS
 The site lacks a DNS due to not knowing where the domain is hosted 
 ## API ROUTE 
-the Site Implements an API router that displays all running pods in the "kube-system"
+The site Implements an API router that displays all running pods in the "kube-system"
 namespace.
 
 This can be access by going to the /pods webpage
