@@ -6,35 +6,35 @@ variable "cluster_name" {
 
 variable "cluster_version" {
   type        = string
-  description = "version of the EKS cluster. example 1.29"
+  description = "cluster_version"
 }
 
 variable "min_size" {
   type        = number
-  description = "version of the EKS cluster. example 1.29"
+  description = "min_size"
 }
 
 variable "max_size" {
   type        = number
-  description = "version of the EKS cluster. example 1.29"
+  description = "max_size"
 }
 
 variable "desired_size" {
   type        = number
-  description = "version of the EKS cluster. example 1.29"
+  description = "desired_size"
 }
 
 variable "subnet1" {
   type        = string
-  description = "version of the EKS cluster. example 1.29"
+  description = "subnet1"
 }
 
 variable "subnet2" {
   type        = string
-  description = "version of the EKS cluster. example 1.29"
+  description = "subnet2"
 }
 
 variable "subnet3" {
   type        = string
-  description = "version of the EKS cluster. example 1.29"
+  description = "subnet3"
 }
