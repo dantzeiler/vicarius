@@ -27,21 +27,6 @@ variable "desired_size" {
   description = "desired_size"
 }
 
-variable "subnet1" {
-  type        = string
-  description = "subnet1"
-}
-
-variable "subnet2" {
-  type        = string
-  description = "subnet2"
-}
-
-variable "subnet3" {
-  type        = string
-  description = "subnet3"
-}
-
 variable "ecr_python_name" {
   type        = string
   description = "ecr_python_name"

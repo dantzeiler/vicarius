@@ -16,7 +16,7 @@ spec:
       serviceAccountName: python-kube-serviceaccount
       containers:
       - name: python-application
-        image: 058264138725.dkr.ecr.us-east-1.amazonaws.com/python-application:{{ .Values.dankuni.VERSION }}
+        image: 361769558926.dkr.ecr.us-east-1.amazonaws.com/application:{{ .Values.dankuni.VERSION }}
         ports:
         - containerPort: 80
         envFrom:

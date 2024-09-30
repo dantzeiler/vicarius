@@ -23,18 +23,3 @@ variable "desired_size" {
   type        = number
   description = "desired_size"
 }
-
-variable "subnet1" {
-  type        = string
-  description = "subnet1"
-}
-
-variable "subnet2" {
-  type        = string
-  description = "subnet2"
-}
-
-variable "subnet3" {
-  type        = string
-  description = "subnet3"
-}

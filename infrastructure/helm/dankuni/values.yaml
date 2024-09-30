@@ -8,6 +8,6 @@ dankuni:
 # Number of replicasets (pods) 
 replicasets:
   dev:
-    pods: 2
+    pods: 1
   prod:
-    pods: 4
+    pods: 2

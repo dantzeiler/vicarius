@@ -21,10 +21,6 @@ module "vpc" {
   }
 }
 
-
-
-
-
 #######################################
 ############ EKS Cluster ##############
 #######################################
@@ -36,41 +32,21 @@ module "eks" {
   cluster_name    = var.cluster_name
   cluster_version = var.cluster_version
 
-  cluster_endpoint_public_access  = true
+  cluster_endpoint_public_access = true
 
-  vpc_id                   = 
-  subnet_ids               = 
+  # Use the VPC and subnet IDs from the VPC module
+  vpc_id      = module.vpc.vpc_id
+  subnet_ids  = module.vpc.private_subnets
+
   eks_managed_node_groups = {
     example = {
       # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
       ami_type       = "AL2023_x86_64_STANDARD"
-      instance_types = ["t3a.small"]
+      instance_types = ["t3.medium"]
 
       min_size     = var.min_size
       max_size     = var.max_size
       desired_size = var.desired_size
-    }
-  }
-
-  # Cluster access entry
-  # To add the current caller identity as an administrator
-  enable_cluster_creator_admin_permissions = true
-
-  access_entries = {
-    # One access entry with a policy associated
-    example = {
-      kubernetes_groups = []
-      principal_arn     = "arn:aws:iam::058264138725:role/Dankuni-dev-cluster-20240907104838580000000003"
-
-      policy_associations = {
-        example = {
-          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy"
-          access_scope = {
-            namespaces = ["default"]
-            type       = "namespace"
-          }
-        }
-      }
     }
   }
 

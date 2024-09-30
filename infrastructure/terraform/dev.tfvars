@@ -1,10 +1,7 @@
 environment                     = "dev"
-cluster_name                    = "Dankuni-dev"
+cluster_name                    = "popupq"
 cluster_version                 = "1.30"
-subnet1                         = "subnet-066502d8331d198cf"
-subnet2                         = "subnet-0a11d78468a9e28a5"
-subnet3                         = "subnet-0a8517eb86cbfe57f"
-min_size                        = 3
-max_size                        = 10
-desired_size                    = 3
-ecr_python_name                 = "python-application"
+min_size                        = 1
+max_size                        = 1
+desired_size                    = 1
+ecr_python_name                 = "application"
