@@ -1,4 +1,31 @@
 #######################################
+########### VPC + Subnet ##############
+#######################################
+
+module "vpc" {
+  source = "terraform-aws-modules/vpc/aws"
+
+  name = "popupq"
+  cidr = "10.0.0.0/16"
+
+  azs             = ["eu-north-1a", "eu-north-1b", "eu-north-1c"]
+  private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+
+  enable_nat_gateway = true
+  enable_vpn_gateway = true
+
+  tags = {
+    Terraform = "true"
+    Environment = "dev"
+  }
+}
+
+
+
+
+
+#######################################
 ############ EKS Cluster ##############
 #######################################
 
@@ -11,27 +38,13 @@ module "eks" {
 
   cluster_endpoint_public_access  = true
 
-  cluster_addons = {
-    coredns                = {}
-    eks-pod-identity-agent = {}
-    kube-proxy             = {}
-    vpc-cni                = {}
-  }
-
-  vpc_id                   = "vpc-02c42497a5d880aa4"
-  subnet_ids               = [var.subnet1, var.subnet2, var.subnet3]
-  #control_plane_subnet_ids = ["subnet-xyzde987", "subnet-slkjf456", "subnet-qeiru789"]
-
-  # EKS Managed Node Group(s)
-  eks_managed_node_group_defaults = {
-    instance_types = ["m6i.large", "m5.large", "m5n.large", "m5zn.large"]
-  }
-
+  vpc_id                   = 
+  subnet_ids               = 
   eks_managed_node_groups = {
     example = {
       # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
       ami_type       = "AL2023_x86_64_STANDARD"
-      instance_types = ["m5.xlarge"]
+      instance_types = ["t3a.small"]
 
       min_size     = var.min_size
       max_size     = var.max_size
