@@ -35,7 +35,7 @@ jobs:
 
       - name: Update kubeconfig
         run: |
-          aws eks update-kubeconfig --region eu-north-1 --name Dankuni-dev
+          aws eks update-kubeconfig --region eu-north-1 --name popupq
 
       - name: Deploy Helm Chart
         run: |
