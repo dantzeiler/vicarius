@@ -24,15 +24,15 @@ jobs:
       - name: Log in to Amazon ECR
         id: ecr-login
         run: |
-          aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 058264138725.dkr.ecr.eu-north-1.amazonaws.com
+          aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 361769558926.dkr.ecr.eu-north-1.amazonaws.com
 
       - name: Build Docker image
         run: |
           IMAGE_TAG=${{ github.run_number }}
-          docker build --no-cache -f application/Dockerfile -t 058264138725.dkr.ecr.eu-north-1.amazonaws.com/python-application:$IMAGE_TAG -t 058264138725.dkr.ecr.eu-north-1.amazonaws.com/python-application:latest .
+          docker build --no-cache -f application/Dockerfile -t 361769558926.dkr.ecr.eu-north-1.amazonaws.com/application:$IMAGE_TAG -t 361769558926.dkr.ecr.eu-north-1.amazonaws.com/application:latest .
 
       - name: Push Docker image to ECR
         run: |
           IMAGE_TAG=${{ github.run_number }}
-          docker push 058264138725.dkr.ecr.eu-north-1.amazonaws.com/python-application:$IMAGE_TAG
-          docker push 058264138725.dkr.ecr.eu-north-1.amazonaws.com/python-application:latest
+          docker push 361769558926.dkr.ecr.eu-north-1.amazonaws.com/application:$IMAGE_TAG
+          docker push 361769558926.dkr.ecr.eu-north-1.amazonaws.com/application:latest

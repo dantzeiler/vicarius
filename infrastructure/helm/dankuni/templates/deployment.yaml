@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-application
+  name: application
 spec:
   replicas: 1
   selector:
@@ -15,8 +15,8 @@ spec:
     spec:
       serviceAccountName: python-kube-serviceaccount
       containers:
-      - name: python-application
-        image: 361769558926.dkr.ecr.us-east-1.amazonaws.com/application:{{ .Values.dankuni.VERSION }}
+      - name: application
+        image: 361769558926.dkr.ecr.eu-north-1.amazonaws.com/application:{{ .Values.dankuni.VERSION }}
         ports:
         - containerPort: 80
         envFrom:
