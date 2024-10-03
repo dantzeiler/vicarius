@@ -9,7 +9,7 @@ config.load_incluster_config()
 
 @app.route('/')
 def home():
-    return "Welcome to Dans Landing page\n Alex smells like bacon!!! to get more pod info please process to the '/pods' page"
+    return "Welcome to Dans Landing page\n Alex smells like fruit!!! to get more pod info please process to the '/pods' page"
 
 
 @app.route('/pods', methods=['GET'])
